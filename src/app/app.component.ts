@@ -9,18 +9,37 @@ import { SpeedtestResults } from './classes/speedtest-results';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  ping = 0;
-  download = 0;
-  upload = 0;
-  jitter = 0;
+  ping;
+  download;
+  upload;
+  jitter;
+
+  started = false;
 
   constructor(private speedtest: SpeedtestService) {
-    speedtest.startService();
-    speedtest.getResultSub().subscribe(
-      (res) => { this.update(res) },
+  }
+
+  toggleStart() {
+    if (this.started) {
+      this.stopService();
+    } else {
+      this.startService();
+    }
+  }
+
+  private startService() {
+    this.speedtest.startService();
+    this.speedtest.getResultSub().subscribe(
+      (res) => { this.update(res); },
       (err) => {  },
       () => {}
     );
+    this.started = true;
+  }
+
+  private stopService() {
+    this.speedtest.stopService();
+    this.started = false;
   }
 
   private update(res: SpeedtestResults) {
@@ -28,6 +47,7 @@ export class AppComponent {
     this.download = res.downloadStatus;
     this.upload = res.uploadStatus;
     this.jitter = res.jitterStatus;
+    this.started = res.testState !== 4
   }
 
 

@@ -1,30 +1,32 @@
 <div class="d-flex flex-column wrapper">
   <div class="d-flex flex-row heading justify-content-center">
-    Speed Test
+    <button class="btn" [class.btn-success]="!started" [class.btn-danger]="started" (click)="toggleStart()">
+      {{started ? 'Stop' : 'Start'}}
+    </button>
   </div>
   <div class="d-flex flex-row body justify-content-around">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Ping</h5>
-        <p class="card-text">{{ping}} ms</p>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Upload</h5>
-        <p class="card-text">{{upload}} ms</p>
+        <p class="card-text">{{ping || '-'}} ms</p>
       </div>
     </div>
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Download</h5>
-        <p class="card-text">{{download}} ms</p>
+        <p class="card-text">{{download || '-'}} Mbps</p>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Upload</h5>
+        <p class="card-text">{{upload || '-'}} Mbps</p>
       </div>
     </div>
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Jitter</h5>
-        <p class="card-text">{{jitter}} ms</p>
+        <p class="card-text">{{jitter || '-'}} ms</p>
       </div>
     </div>
   </div>

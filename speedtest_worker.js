@@ -28,7 +28,7 @@ var settings = {
   time_dl: 15, // duration of download test in seconds
   time_ulGraceTime: 3, //time to wait in seconds before actually measuring ul speed (wait for buffers to fill)
   time_dlGraceTime: 1.5, //time to wait in seconds before actually measuring dl speed (wait for TCP window to increase)
-  count_ping: 10, // number of pings to perform in ping test
+  count_ping: 1000, // number of pings to perform in ping test
   url_dl: 'src/app/scripts/garbage-data/garbage.php', // path to a large file or garbage.php, used for download test. must be relative to this js file
   url_ul: 'src/app/scripts/garbage-data/empty.php', // path to an empty file, used for upload test. must be relative to this js file
   url_ping: 'src/app/scripts/garbage-data/empty.php', // path to an empty file, used for ping test. must be relative to this js file

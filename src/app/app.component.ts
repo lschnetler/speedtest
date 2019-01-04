@@ -23,7 +23,10 @@ export class AppComponent {
     if (this.started) {
       this.stopService();
     } else {
-      this.startService();
+      requestAnimationFrame(() => {
+        this.resetAll();
+        this.startService();
+      });
     }
   }
 
@@ -43,12 +46,18 @@ export class AppComponent {
   }
 
   private update(res: SpeedtestResults) {
-    this.ping = res.pingStatus;
-    this.download = res.downloadStatus;
-    this.upload = res.uploadStatus;
-    this.jitter = res.jitterStatus;
-    this.started = res.testState !== 4
+    this.ping = Math.round(res.pingStatus * 100) / 100;
+    this.download = Math.round(res.downloadStatus * 100) / 100;
+    this.upload = Math.round(res.uploadStatus * 100) / 100;
+    this.jitter = Math.round(res.jitterStatus * 100) / 100;
+    this.started = res.testState !== 4;
   }
 
+  private resetAll() {
+    this.ping = 0;
+    this.download = 0;
+    this.upload = 0;
+    this.jitter = 0;
+  }
 
 }

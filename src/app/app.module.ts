@@ -1,6 +1,7 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { NgxGaugeModule } from 'ngx-gauge';
 
 import { AppComponent } from './app.component';
 import { SpeedtestService } from './services/speedtest.service';
@@ -11,7 +12,8 @@ import { SpeedtestService } from './services/speedtest.service';
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    NgxGaugeModule
   ],
   providers: [SpeedtestService],
   bootstrap: [AppComponent]

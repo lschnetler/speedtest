@@ -13,7 +13,9 @@
         <ngx-gauge [type]="'arch'"
                    [value]="ping"
                    [label]="'Ping'"
-                   [append]="'ms'">
+                   [append]="'ms'"
+                   [thresholds]="pingThreshold"
+                   >
         </ngx-gauge>
       </div>
     </div>
@@ -23,7 +25,8 @@
                    [value]="download"
                    [label]="'Download'"
                    [append]="'Mbps'"
-                   [max]="10">
+                   [max]="10"
+                   [thresholds]="downloadThreshold">
         </ngx-gauge>
       </div>
     </div>
@@ -33,7 +36,8 @@
                    [value]="upload"
                    [label]="'Upload'"
                    [append]="'Mbps'"
-                   [max]="10">
+                   [max]="10"
+                   [thresholds]="uploadThreshold">
         </ngx-gauge>
       </div>
     </div>
@@ -43,7 +47,8 @@
                    [value]="jitter"
                    [label]="'Jitter'"
                    [append]="'ms'"
-                   [max]="10">
+                   [max]="10"
+                   [thresholds]="jitterThreshold">
         </ngx-gauge>
       </div>
     </div>

@@ -14,6 +14,27 @@ export class AppComponent {
   upload;
   jitter;
 
+  pingThreshold = {
+    '0': {color: 'green'},
+    '300': {color: 'orange'},
+    '500': {color: 'red'},
+  };
+  downloadThreshold = {
+    '0': {color: 'red'},
+    '0.2': {color: 'orange'},
+    '1.0': {color: 'green'},
+  };
+  uploadThreshold = {
+    '0': {color: 'red'},
+    '0.2': {color: 'orange'},
+    '1.0': {color: 'green'},
+  };
+  jitterThreshold = {
+    '0': {color: 'green'},
+    '2': {color: 'orange'},
+    '5': {color: 'red'},
+  };
+
   started = false;
 
   constructor(private speedtest: SpeedtestService) {
